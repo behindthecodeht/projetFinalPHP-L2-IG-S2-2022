@@ -1,0 +1,429 @@
+$primary : #2980b9;
+$secondary : #34495e;
+$back : #f2f4f8;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #95a5a6;
+    background-color: $back;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+a,
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 30px;
+    height: 80px;
+    color: $primary;
+    box-shadow: 4px 4px 20px #dddddd;
+}
+
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    color: $secondary;
+    margin-bottom: 30px;
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+main {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+}
+
+.content-page {
+    flex: 10;
+}
+
+// Aside 
+
+aside {
+    flex: 2;
+    height: 100vh;
+    box-shadow: 4px 4px 20px #dddddd;
+
+    .logo {
+        padding-top: 25px;
+        width: 100%;
+        height: 80px;
+        color: white;
+        background-color: $primary;
+        text-align: center;
+    }
+
+    ul {
+        margin-top: 30px;
+        list-style-type: none;
+    }
+
+    a {
+        display: inline-block;
+        width: 100%;
+        color: $primary;
+        padding: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid #dddddd;
+
+
+        &.active,
+        &:hover {
+            background-color: $primary;
+            color: white;
+        }
+
+        i {
+            width: 28px;
+        }
+    }
+}
+
+@media screen and (max-width: 996px) {
+    aside{
+        flex: 0.5;
+
+        .logo h2{
+            display: none;
+        }
+
+        ul span{
+            display: none;
+        }
+    }
+
+    .grille{
+        flex-wrap: wrap;
+    }
+}
+
+
+// Grille and Block 
+
+.block {
+    margin-bottom: 50px;
+
+    h2 {
+        margin-bottom: 15px;
+    }
+}
+
+.grille {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    .grille-item {
+        flex: 1;
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0px 0px 30px #dddddd;
+        border-radius: 5px;
+
+        h3 {
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        &.x-4{
+            flex: 4;
+        }
+
+    }
+
+    &.wrap {
+        flex-wrap: wrap;
+
+        .grille-item{
+            width: 30%;
+            flex: auto;
+        }
+    }
+
+    &.stat {
+        .gr-body {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grille-item:first-child {
+            flex: 2;
+        }
+
+        .grille-item:last-child {
+            flex: 3;
+        }
+    }
+
+    .gr-body {
+        display: flex;
+        justify-content: space-between;
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+        color: $secondary;
+
+        span {
+            color: $primary;
+            font-weight: bold;
+        }
+    }
+
+    .gr-foot {
+        &.up {
+            color: #27ae60;
+        }
+
+        &.down {
+            color: #c0392b;
+        }
+
+        a {
+            color: $secondary;
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    }
+}
+
+
+// Card
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $back;
+    padding: 20px;
+    margin-bottom: 15px;
+
+    &.med {
+        justify-content: flex-start;
+
+        i {
+            font-size: 2.3rem;
+            margin-right: 20px;
+        }
+    }
+
+}
+
+// Button and Form
+
+.btn {
+    display: inline-block;
+    padding: 8px 20px;
+    border: 2px solid $primary;
+    color: $primary;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+
+    &.btn-solid {
+        background-color: $primary;
+        color: white;
+    }
+
+    &.btn-outlined {
+        &:hover {
+            color: white
+        }
+    }
+
+    &.btn-danger {
+        border-color: red;
+        background-color: red;
+        color: white;
+    }
+
+    &:hover {
+        transition: all ease-out .3s;
+        box-shadow: 4px 4px 20px #dddddd;
+        transform: scale(1.03);
+
+        &:not(.btn-danger) {
+            background-color: $secondary;
+            border-color: $secondary;
+        }
+    }
+}
+
+input,
+select,
+textarea {
+    padding: 8px;
+    border: 2px solid $primary;
+    color: $secondary;
+    border-radius: 5px;
+
+    &:focus-visible {
+        border-color: $secondary;
+        outline: none;
+    }
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+    width: 100%;
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: $secondary;
+        font-size: 1.1rem;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+
+    textarea{
+        height: 100px;
+    }
+
+    &.row {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .row-el {
+        flex: 1;
+    }
+}
+
+// Table 
+
+table {
+    border-collapse: collapse;
+    color: $secondary;
+
+    td,
+    th {
+        padding: 10px;
+    }
+}
+
+.table-data {
+    border-bottom: 3px solid $secondary;
+    width: 100%;
+
+    td,
+    th {
+        border: 1px solid $secondary;
+    }
+
+    td:last-child {
+        text-align: center;
+    }
+
+    thead {
+        background-color: $secondary;
+        color: $back;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: white;
+    }
+}
+
+
+// Alert
+
+.alert {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    color: red;
+
+    &.alert-danger {
+        background-color: #f5a8a8;
+        border: 1.5px solid #ff8484;
+    }
+}
+
+
+// Modal
+// .modal-container{
+//     display:none;
+//     visibility: hidden;
+//     position: fixed;
+//     top: 0;
+//     width: 100vw;
+//     height: 100vh;
+//     transition: visibility .4s ease-out;
+
+//     &.active{
+//         visibility: visible;
+//         transition: visibility .4s ease-out;
+
+//         .modal{
+//             transform: translate(-50%, -40%);
+//             opacity: 1;
+//             transition: all .6s ease-out;
+//         }
+//     }
+// }
+
+// .overlay{
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #022144bb;
+// }
+
+// .modal{
+//     width: 95%;
+//     max-width: 600px;
+//     min-width: 300px;
+//     background-color: $back;
+//     padding: 20px;
+//     border-radius: 10px;
+//     position: absolute;
+//     top: 40%;
+//     left: 50%;
+//     transform: translate(-50%, calc(-40% - 50px));
+//     opacity: 0;
+//     transition: all .4s ease-out;
+
+//     .modal-header{
+//         display: flex;
+//         justify-content: space-between;
+//         align-items: center;
+//         line-height: 2rem;
+//         padding-bottom: 20px;
+
+//         h2{
+//             font-size: 1.6rem;
+//         }
+
+//         .btn{
+//             padding: 5px 10px;
+
+//             &:hover{
+//                 transform: rotate(360deg);
+//             }
+//         }
+//     }
+// }
